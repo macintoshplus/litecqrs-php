@@ -1,5 +1,5 @@
 {
-    "name": "beberlei/lite-cqrs",
+    "name": "macintoshplus/lite-cqrs",
     "description": "Simple Command-Query-Responsibility-Segregation library.",
     "license": "MIT",
     "autoload": {
