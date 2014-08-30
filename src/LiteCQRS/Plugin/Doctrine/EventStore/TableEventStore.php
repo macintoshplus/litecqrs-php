@@ -42,5 +42,11 @@ class TableEventStore implements EventStoreInterface
             'data'           => $this->serializer->serialize($event, 'json'),
         ));
     }
+
+    public function getTableSchema($schema)
+    {
+        $table = new TableEventStoreSchema($this->table);
+        return $table->getTableSchema($schema);
+    }
 }
 

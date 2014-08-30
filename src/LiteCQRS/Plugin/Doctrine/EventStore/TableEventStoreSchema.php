@@ -13,9 +13,9 @@ class TableEventStoreSchema
         $this->table = $table;
     }
 
-    public function getTableSchema()
+    public function getTableSchema($schema)
     {
-        $schema = new Schema();
+        //$schema = new Schema();
         $table = $schema->createTable($this->table);
         $table->addColumn('id', 'integer', array('autoincrement' => true));
         $table->addColumn('event_id', 'string', array('notnull' => true));
