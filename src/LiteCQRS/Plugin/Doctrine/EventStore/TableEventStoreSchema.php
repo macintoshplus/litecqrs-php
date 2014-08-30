@@ -13,6 +13,10 @@ class TableEventStoreSchema
         $this->table = $table;
     }
 
+    public function getTableName(){
+        return $this->table;
+    }
+
     public function getTableSchema($schema)
     {
         //$schema = new Schema();
