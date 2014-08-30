@@ -1,5 +1,5 @@
 {
-    "name": "beberlei/lite-cqrs",
+    "name": "macintoshplus/lite-cqrs",
     "description": "Simple Command-Query-Responsibility-Segregation library.",
     "license": "MIT",
     "autoload": {
@@ -13,6 +13,6 @@
         "symfony/framework-bundle": ">=2.0,<2.2",
         "symfony/console": ">=2.0,<2.2",
         "swiftmailer/swiftmailer": "4.*",
-        "jms/serializer-bundle": "@stable"
+        "jms/serializer-bundle": "0.9.0@stable"
     }
 }
