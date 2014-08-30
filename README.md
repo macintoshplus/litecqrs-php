@@ -74,7 +74,7 @@ Install with [Composer](http://getcomposer.org):
 
     {
         "require": {
-            "beberlei/lite-cqrs": "1.1"
+            "macintoshplus/lite-cqrs": "1.2"
         }
     }
 
