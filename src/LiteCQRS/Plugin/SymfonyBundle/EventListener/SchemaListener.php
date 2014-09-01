@@ -19,7 +19,7 @@ class SchemaListener
     {
     	$schema = $args->getSchema();
     	if (!$schema->hasTable($this->schema->getTableName())) {
-	        $schema->createTable($this->schema->getTableSchema());
+	        $this->schema->getTableSchema($schema);
 	    }
     }
 }
