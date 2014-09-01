@@ -43,10 +43,5 @@ class TableEventStore implements EventStoreInterface
         ));
     }
 
-    public function getTableSchema($schema)
-    {
-        $table = new TableEventStoreSchema($this->table);
-        return $table->getTableSchema($schema);
-    }
 }
 
