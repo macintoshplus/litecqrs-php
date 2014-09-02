@@ -17,10 +17,10 @@ class TableEventStoreTest extends \PHPUnit_Framework_TestCase
 
         $conn = DriverManager::getConnection(array("driver" => "pdo_sqlite", "memory" => true));
 
-        $schema = new TableEventStoreSchema();
+        $schema = new TableEventStoreSchema('litecqrs_events');
         $schema->getTableSchema($conn->getSchemaManager());
 
-        $eventStore = new TableEventStore($conn, $serializer, $schema->getTableName());
+        $eventStore = new TableEventStore($conn, $serializer, 'litecqrs_events');
 
         $event = new DomainObjectChanged("Test", array());
 
