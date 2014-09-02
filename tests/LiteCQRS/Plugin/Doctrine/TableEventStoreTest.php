@@ -18,10 +18,10 @@ class TableEventStoreTest extends \PHPUnit_Framework_TestCase
         $conn = DriverManager::getConnection(array("driver" => "pdo_sqlite", "memory" => true));
 
         $schema = new TableEventStoreSchema();
-        $schema->getTableSchema($conn->getSchemaManager()->createSchema());
-        //$conn->getSchemaManager()->createTable($tableSchema);
+        $tableSchema = $schema->getTableSchema();
+        $conn->getSchemaManager()->createTable($tableSchema);
 
-        $eventStore = new TableEventStore($conn, $serializer, $schema->getTableName());
+        $eventStore = new TableEventStore($conn, $serializer, $tableSchema->getName());
 
         $event = new DomainObjectChanged("Test", array());
 
@@ -41,10 +41,10 @@ class TableEventStoreTest extends \PHPUnit_Framework_TestCase
         $conn = DriverManager::getConnection(array("driver" => "pdo_sqlite", "memory" => true));
 
         $schema = new TableEventStoreSchema();
-        $schema->getTableSchema($conn->getSchemaManager()->createSchema());
-        //$conn->getSchemaManager()->createTable($tableSchema);
+        $tableSchema = $schema->getTableSchema();
+        $conn->getSchemaManager()->createTable($tableSchema);
 
-        $eventStore = new TableEventStore($conn, $serializer, $schema->getTableName());
+        $eventStore = new TableEventStore($conn, $serializer, $tableSchema->getName());
 
         $event = new DomainObjectChanged("Test", array());
         $event->getMessageHeader()->aggregateId = array('id' => 43, 'name' => 'test name');

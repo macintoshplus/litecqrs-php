@@ -17,9 +17,9 @@ class TableEventStoreSchema
         return $this->table;
     }
 
-    public function getTableSchema($schema)
+    public function getTableSchema($schema = null)
     {
-        //$schema = new Schema();
+        if(null===$schema) $schema = new Schema();
         $table = $schema->createTable($this->table);
         $table->addColumn('id', 'integer', array('autoincrement' => true));
         $table->addColumn('event_id', 'string', array('notnull' => true));
@@ -32,6 +32,6 @@ class TableEventStoreSchema
         $table->addColumn('data', 'text');
         $table->setPrimaryKey(array('id'));
         $table->addIndex(array('aggregate_type', 'aggregate_id'));
-        
+        return $schema;
     }
 }
