@@ -17,10 +17,11 @@ class TableEventStoreTest extends \PHPUnit_Framework_TestCase
 
         $conn = DriverManager::getConnection(array("driver" => "pdo_sqlite", "memory" => true));
 
-        $schema = new TableEventStoreSchema('litecqrs_events');
-        $schema->getTableSchema($conn->getSchemaManager());
+        $schema = new TableEventStoreSchema();
+        $schema->getTableSchema($conn->getSchemaManager()->createSchema());
+        //$conn->getSchemaManager()->createTable($tableSchema);
 
-        $eventStore = new TableEventStore($conn, $serializer, 'litecqrs_events');
+        $eventStore = new TableEventStore($conn, $serializer, $schema->getName());
 
         $event = new DomainObjectChanged("Test", array());
 
@@ -40,9 +41,10 @@ class TableEventStoreTest extends \PHPUnit_Framework_TestCase
         $conn = DriverManager::getConnection(array("driver" => "pdo_sqlite", "memory" => true));
 
         $schema = new TableEventStoreSchema();
-        $schema->getTableSchema($conn->getSchemaManager());
+        $schema->getTableSchema($conn->getSchemaManager()->createSchema());
+        //$conn->getSchemaManager()->createTable($tableSchema);
 
-        $eventStore = new TableEventStore($conn, $serializer, $schema->getTableName());
+        $eventStore = new TableEventStore($conn, $serializer, $schema->getName());
 
         $event = new DomainObjectChanged("Test", array());
         $event->getMessageHeader()->aggregateId = array('id' => 43, 'name' => 'test name');
