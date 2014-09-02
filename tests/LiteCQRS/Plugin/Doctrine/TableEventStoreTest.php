@@ -21,7 +21,7 @@ class TableEventStoreTest extends \PHPUnit_Framework_TestCase
         $schema->getTableSchema($conn->getSchemaManager()->createSchema());
         //$conn->getSchemaManager()->createTable($tableSchema);
 
-        $eventStore = new TableEventStore($conn, $serializer, $schema->getName());
+        $eventStore = new TableEventStore($conn, $serializer, $schema->getTableName());
 
         $event = new DomainObjectChanged("Test", array());
 
@@ -44,7 +44,7 @@ class TableEventStoreTest extends \PHPUnit_Framework_TestCase
         $schema->getTableSchema($conn->getSchemaManager()->createSchema());
         //$conn->getSchemaManager()->createTable($tableSchema);
 
-        $eventStore = new TableEventStore($conn, $serializer, $schema->getName());
+        $eventStore = new TableEventStore($conn, $serializer, $schema->getTableName());
 
         $event = new DomainObjectChanged("Test", array());
         $event->getMessageHeader()->aggregateId = array('id' => 43, 'name' => 'test name');
