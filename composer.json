@@ -10,10 +10,11 @@
         "rhumsaa/uuid": "@stable"
     },
     "require-dev": {
-        "doctrine/common": ">=2.0,<2.5",
+        "doctrine/common": ">=2.1,<2.5",
         "doctrine/orm": ">=2.0,<2.5",
-        "doctrine/couchdb": "dev-master",
-        "doctrine/mongodb": "dev-master",
+        "doctrine/couchdb": "1.0.*@dev",
+        "ext-mongo": ">=1.2.12,<1.6-dev",
+        "doctrine/mongodb": "1.2.*@dev",
         "symfony/framework-bundle": ">=2.0,<2.4",
         "symfony/console": ">=2.0,<2.4",
         "swiftmailer/swiftmailer": "4.*",
