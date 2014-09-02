@@ -32,6 +32,6 @@ class TableEventStoreSchema
         $table->addColumn('data', 'text');
         $table->setPrimaryKey(array('id'));
         $table->addIndex(array('aggregate_type', 'aggregate_id'));
-        return $schema;
+        return $table;
     }
 }
