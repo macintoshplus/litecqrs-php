@@ -18,8 +18,7 @@ class TableEventStoreTest extends \PHPUnit_Framework_TestCase
         $conn = DriverManager::getConnection(array("driver" => "pdo_sqlite", "memory" => true));
 
         $schema = new TableEventStoreSchema();
-        $tableSchema = $schema->getTableSchema();
-        $conn->getSchemaManager()->createTable($tableSchema);
+        $schema->getTableSchema($conn->getSchemaManager());
 
         $eventStore = new TableEventStore($conn, $serializer, $tableSchema->getName());
 
@@ -41,8 +40,7 @@ class TableEventStoreTest extends \PHPUnit_Framework_TestCase
         $conn = DriverManager::getConnection(array("driver" => "pdo_sqlite", "memory" => true));
 
         $schema = new TableEventStoreSchema();
-        $tableSchema = $schema->getTableSchema();
-        $conn->getSchemaManager()->createTable($tableSchema);
+        $schema->getTableSchema($conn->getSchemaManager());
 
         $eventStore = new TableEventStore($conn, $serializer, $tableSchema->getName());
 
