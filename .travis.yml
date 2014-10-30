@@ -18,3 +18,4 @@ before_script:
   - composer self-update
   - yes '' | pecl -q install -f mongo-${MONGO_VERSION} && echo "extension=mongo.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
   - composer update
+  - phpenv --version
